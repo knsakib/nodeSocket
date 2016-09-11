@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appmodule">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <!-- load angular -->
+
+
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+
+
+    <script>
+      // Initialize Firebase
+
+      var data1;
+      var config = {
+        apiKey: "AIzaSyA7mJ2tM7vQubbzeYfyl78rRGU6B-hkQ8o",
+        authDomain: "myapplication4521.firebaseapp.com",
+        databaseURL: "https://myapplication4521.firebaseio.com",
+        storageBucket: "myapplication4521.appspot.com",
+      };
+      firebase.initializeApp(config);
+
+      var db = firebase.database();
+      var ref = db.ref().child('text');
+
+
+      ref.on('value', function(snapshot) {
+        // console.log(snapshot.val());
+        data1=snapshot.val();
+
+        var dataDivId=document.getElementById('dataDiv');
+
+        dataDivId.innerText=data1;
+
+
+      });
+
+
+
+    </script>
+
+
+
+  </head>
+
+<body>
+
+hi how are you??
+
+<div id=dataDiv></div>
+
+
+
+
+</body>
+</html>
